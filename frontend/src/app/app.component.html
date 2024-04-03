@@ -1,0 +1,17 @@
+<nav>
+  <ul>
+    <li><a href="">Home</a></li>
+    <li *ngIf="user.username !=''" ><a href="/appointments">Appointments</a></li>
+    <li *ngIf="user.username !=''" ><a href="/patients">Patients</a></li>
+    
+    <li style="float:right" *ngIf="user.username !=''"> 
+      <a class="active" href="#login" (click)="logout()">Logout</a>
+    </li>
+    <li style="float:right" *ngIf="user.username ==''"><a class="active" href="/login">Login</a></li>
+    <li style="float:right" *ngIf="user.username !=''"><a class="active" href="/">{{ user.username }}</a></li>
+    <!-- <li style="float:right" *ngIf="user.email !=''"><a class="active" href="/">{{ user.username }}</a></li> -->
+    <!-- <li style="float:right"><a  href="/">{{ message }}</a></li> -->
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+

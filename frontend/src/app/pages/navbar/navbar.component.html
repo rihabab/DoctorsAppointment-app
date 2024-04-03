@@ -1,0 +1,14 @@
+<nav>
+    <ul>
+      <li><a href="">Home</a></li>
+      <li *ngIf="user.email" ><a href="/appointments">Appointments</a></li>
+      <li *ngIf="user.email" ><a href="/patients">Patients</a></li>
+      
+      <li style="float:right" *ngIf="user.email"> 
+        <a class="active" href="#" (click)="logout()">Logout</a>
+      </li>
+      <li style="float:right" *ngIf="user.email ==''"><a class="active" href="/login">Login</a></li>
+      <li style="float:right" *ngIf="user.email !=''"><a class="active" href="/">{{ user.username }}</a></li>
+      <!-- <li style="float:right"><a  href="/">{{ message }}</a></li> -->
+    </ul>
+  </nav>
