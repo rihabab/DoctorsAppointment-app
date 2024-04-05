@@ -1,1 +1,33 @@
-<p>patient-list works!</p>
+<div class="container">
+    <h2>Doctor's Appointments</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>name</th>
+          <th>gender</th>
+          <th>dateofbirth</th>
+          <th>email</th>
+          <th>mobileNum</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let appointment of appointments">
+            <td>{{ appointment.patientid.name }}</td>
+            <td>{{ appointment.patientid.gender }}</td>
+            <td>{{ appointment.patientid.dateofbirth }}</td>
+            <td>{{ appointment.patientid.email }}</td>
+            <td>{{ appointment.patientid.mobileNum }}</td>
+          </tr>
+      </tbody>
+    </table>
+    <!-- Pagination -->
+    <nav>
+      <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+      </ul>
+    </nav>
+  </div>

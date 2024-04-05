@@ -7,4 +7,5 @@ public class DoctorRequest {
 
     private Doctor doctor;
     private String password;
+    private String nature;
 }

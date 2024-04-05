@@ -6,4 +6,5 @@ import lombok.Data;
 public class PatientRequest {
     private Patient patient;
     private String password;
+    private String nature;
 }

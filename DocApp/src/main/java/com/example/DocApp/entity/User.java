@@ -24,9 +24,10 @@ public class User {
 
     private String password;
 
-    public User(String email, String username, String password){
+    public User(String email, String username,String nature, String password){
         this.email=email;
         this.username=username;
+        this.nature=nature;
         this.password=password;
     }
 

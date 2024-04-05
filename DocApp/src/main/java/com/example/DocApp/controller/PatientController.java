@@ -13,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/patients")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PatientController {
 
     @Autowired
@@ -24,7 +25,7 @@ public class PatientController {
     @PostMapping
     public Patient createPatient(@RequestBody PatientRequest patient) {
         Patient registeredPatient= patient.getPatient();
-        User user = new User(registeredPatient.getEmail(), registeredPatient.getName(), patient.getPassword());
+        User user = new User(registeredPatient.getEmail(), registeredPatient.getName(), patient.getNature(), patient.getPassword());
         authService.register(user);
         return patientService.createPatient(registeredPatient);
     }

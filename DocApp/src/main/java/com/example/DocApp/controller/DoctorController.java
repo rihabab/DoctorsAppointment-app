@@ -23,7 +23,7 @@ public class DoctorController {
     @PostMapping
     public Doctor createDoctor(@RequestBody DoctorRequest doctor) {
         Doctor registreddoctor=doctor.getDoctor();
-        User user = new User(registreddoctor.getEmail(), registreddoctor.getName(), doctor.getPassword());
+        User user = new User(registreddoctor.getEmail(), registreddoctor.getName(), doctor.getNature(),doctor.getPassword());
         authService.register(user);
         return doctorService.createDoctor(registreddoctor);
     }

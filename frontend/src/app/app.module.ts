@@ -13,9 +13,12 @@ import { FormsModule } from '@angular/forms';
 import { NewHospitalComponent } from './pages/new-hospital/new-hospital.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { NavbarComponent } from './pages/navbar/navbar.component';
+import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
+import { NewPatientComponent } from './pages/new-patient/new-patient.component';
+import { ReceptionComponent } from './pages/reception/reception.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     NewHospitalComponent,
     PatientListComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    NewDoctorComponent,
+    NewPatientComponent,
+    ReceptionComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,9 @@ import { NavbarComponent } from './pages/navbar/navbar.component';
     CommonModule,
     RouterLink
   ],
-  providers: [],
+  providers: [
+    DatePipe
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

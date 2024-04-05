@@ -11,8 +11,12 @@ export class AppointmentService {
 
   constructor(private http : HttpClient) { }
 
-  newApp(app: Appointment) : Observable<ApiResponseModel> {
-    return this.http.post<ApiResponseModel>(environment.api_url_app_create, app);
+  // newApp(app: Appointment) : Observable<ApiResponseModel> {
+  //   return this.http.post<ApiResponseModel>(environment.api_url_app_create, app);
+  // }
+
+  GetAll() : Observable<any[]> {
+    return this.http.get<any[]>(environment.api_url_get_app);
   }
   
 }

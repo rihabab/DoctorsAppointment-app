@@ -1,0 +1,31 @@
+<div class="new-doctor">
+    <div class="wrapper">
+        <h2>Doctor Registration</h2>
+        <section class="form">
+            
+            <div class="input-box">
+            <input type="text"  [(ngModel)]="doctordata.doctor.name" placeholder="Name" required>
+            <input type="text"  [(ngModel)]="doctordata.doctor.address" placeholder="Address" required>
+            </div>
+            <div class="input-box">
+            <input type="text" [(ngModel)]="doctordata.doctor.city" placeholder="City" required>
+            <input type="text" [(ngModel)]="doctordata.doctor.contactNo" placeholder="Contact Number" required>
+            </div>
+            <div class="input-box">
+            <input type="email" [(ngModel)]="doctordata.doctor.email" placeholder="Email" required>
+            <input type="text" [(ngModel)]="doctordata.doctor.profession" placeholder="Profession" required>
+            </div>
+            <div class="input-box">
+            <input type="password" [(ngModel)]="doctordata.password" placeholder="Password" required>
+            </div>
+            
+            <div class="input-box button">
+            <button type="button"  (click)="onRegister()">Register Now</button>
+            </div>
+            <div class="text">
+            <h3>Already have an account? <a href="/login">Login now</a></h3>
+            </div>
+        </section>
+    </div>
+</div>
+

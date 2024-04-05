@@ -2,7 +2,11 @@ package com.example.DocApp.service;
 
 
 import com.example.DocApp.entity.Appointment;
+import com.example.DocApp.entity.Doctor;
+import com.example.DocApp.entity.Patient;
 import com.example.DocApp.repository.AppointmentRepository;
+import com.example.DocApp.repository.DoctorRepository;
+import com.example.DocApp.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,6 +15,11 @@ import java.util.Optional;
 
 @Service
 public class AppointmentService {
+    @Autowired
+    private PatientRepository patientRepository;
+
+    @Autowired
+    private DoctorRepository doctorRepository;
     @Autowired
     private AppointmentRepository appointmentRepository;
 
@@ -27,6 +36,14 @@ public class AppointmentService {
     // Method to retrieve an appointment by ID
     public Optional<Appointment> getAppointmentById(Long appointmentId) {
         return appointmentRepository.findById(appointmentId);
+    }
+    public List<Appointment> getAppointmentsByDoctorId(Long doctorid) {
+        Doctor doctor= doctorRepository.findById(doctorid).orElse(null);
+        return appointmentRepository.findByDoctorid(doctor);
+    }
+    public List<Appointment> getAppointmentsByPatientId(Long patientid) {
+        Patient patient= patientRepository.findById(patientid).orElse(null);
+        return appointmentRepository.findByPatientid(patient);
     }
 
     // Method to update an appointment

@@ -13,13 +13,13 @@ export class AppointmentListComponent {
   appointment: Appointment = new Appointment();
   constructor(private appSrv: AppointmentService){}
 
-  onSubmit(){
-    this.appSrv.newApp(this.appointment).subscribe((res: ApiResponseModel) => {
-      if(res){
-        alert(res.body);
-      }else{
-        alert(res);
-      }
-    })
-  }
+  // onSubmit(){
+  //   this.appSrv.newApp(this.appointment).subscribe((res: ApiResponseModel) => {
+  //     if(res){
+  //       alert(res.body);
+  //     }else{
+  //       alert(res);
+  //     }
+  //   })
+  // }
 }
