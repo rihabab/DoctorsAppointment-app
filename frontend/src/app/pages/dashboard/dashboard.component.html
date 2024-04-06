@@ -1,29 +1,40 @@
 <div class="container">
-    <h2>Doctor's Appointments</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Time</th>
-          <th>Patient</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let appointment of appointments">
-            <td>{{ formatDate(appointment.date) }}</td>
-            <td>{{ appointment.time }}</td>
-            <td>{{ appointment.patientid.name }}</td>
-          </tr>
-      </tbody>
-    </table>
-    <!-- Pagination -->
-    <nav>
-      <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-      </ul>
-    </nav>
+    
+  <div class="card mb-4">
+    <hr class="hr" />
+        <div class="card-header" id="">
+            <i class="fa fa-shopping-cart" aria-hidden="true" ></i>
+            Doctor's Appointments
+            
+            <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" style="float:right">
+                <div class="input-group">
+                <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."  class="form-control">
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </div>
+            </form>
+            
+        </div> 
+        <hr class="hr" />
+
+        <div class="container">
+          <table class="table table-bordered"  id="myTable">
+            <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Patient</th>
+                </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let appointment of appointments">
+                  <td>{{ formatDate(appointment.date) }}</td>
+                  <td>{{ appointment.time }}</td>
+                  <td>{{ appointment.patientid.name }}</td>
+                </tr>
+            </tbody>
+          </table>
+      </div>
+
   </div>
+  </div>
+<app-new-appointment></app-new-appointment>

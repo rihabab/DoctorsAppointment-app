@@ -1,0 +1,3 @@
+.half-height-btn {
+    height: calc(2rem - 4px); /* Adjust height as needed */
+  }

@@ -1,0 +1,14 @@
+<div class="container mt-5">
+    <h4>Adding appointments</h4>
+    <div class="row">
+      <div class="col-md-4">
+        <label for="datepicker">Date:</label>
+        <input type="date" class="form-control" id="datepicker" [(ngModel)]="appointment.date" name="datepicker">
+      </div>
+      <div class="col-md-4">
+        <label for="timepicker">Time:</label>
+        <input type="time" class="form-control" id="timepicker" [(ngModel)]="appointment.time" name="timepicker">
+      </div>
+      <button type="submit" (click)="onRegister()" class="btn btn-primary btn-sm half-height-btn col-md-1 mt-4">Submit</button>
+    </div>
+  </div>

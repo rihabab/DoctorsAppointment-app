@@ -27,5 +27,7 @@ public class Appointment {
 
     private String time ;
 
+    private boolean taken;
+
 
 }

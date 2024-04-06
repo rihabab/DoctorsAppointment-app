@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { ApiResponseModel, Doctor, DoctorRequest } from '../../core/classes/Doctor.model';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { DoctorService } from '../../core/services/doctor.service';
-
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-new-doctor',
   templateUrl: './new-doctor.component.html',

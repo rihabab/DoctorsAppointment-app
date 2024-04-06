@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
-import { User } from './core/classes/Hospital.model';
-import { HospitalService } from './core/services/hospital.service';
+import { User } from './core/classes/Doctor.model';
+import { DoctorService } from './core/services/doctor.service';
 import { Subscription } from 'rxjs/internal/Subscription';
 import { Router } from '@angular/router';
 
@@ -15,7 +15,7 @@ export class AppComponent {
   Name: String ='';
   Email: String='';
 
-  constructor(private hospitalService :HospitalService,private router: Router) {
+  constructor(private hospitalService :DoctorService,private router: Router) {
     const data = localStorage.getItem('loginuser');
     if(data != null){
       this.user = JSON.parse(data);
@@ -28,7 +28,7 @@ export class AppComponent {
     localStorage.clear();
     // localStorage.removeItem("user-name");
     
-    this.router.navigate(['/login']);
+    this.router.navigate(['/']);
   }
 
   

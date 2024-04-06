@@ -2,6 +2,9 @@ package com.example.DocApp.service;
 
 import com.example.DocApp.entity.User;
 import com.example.DocApp.entity.UserLoginRequest;
+import com.example.DocApp.entity.UserLoginResponse;
+import com.example.DocApp.repository.DoctorRepository;
+import com.example.DocApp.repository.PatientRepository;
 import com.example.DocApp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,6 +18,14 @@ import java.util.Optional;
 public class AuthService {
     @Autowired
     private UserRepository userRepo;
+
+    @Autowired
+    private DoctorRepository doctorRepository;
+
+
+    @Autowired
+    private PatientRepository patientRepository;
+
 
 
     public ResponseEntity<?> register(@RequestBody User user){
@@ -32,9 +43,16 @@ public class AuthService {
         Optional<User> userOptional = userRepo.findByEmail(userLoginRequest.getEmail());
 
         if (userOptional.isPresent()) {
+            UserLoginResponse userres = new UserLoginResponse();
             User user = userOptional.get();
+            userres.setUser(user);
             if (user.getPassword().equals(userLoginRequest.getPassword())) {
-                return ResponseEntity.status(HttpStatus.OK).body(user);
+                if(user.getNature()=="doctor"){
+                    userres.setUserid(doctorRepository.findDoctorByEmail(user.getEmail()).getId());
+                }else if(user.getNature()=="patient"){
+                    userres.setUserid(patientRepository.findPatientByEmail(user.getEmail()).getId());
+                }
+                return ResponseEntity.status(HttpStatus.OK).body(userres);
             } else {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid credentials");
             }

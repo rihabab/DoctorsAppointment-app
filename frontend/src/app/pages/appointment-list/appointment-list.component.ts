@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ApiResponseModel, Appointment } from '../../core/classes/Hospital.model';
+import { ApiResponseModel, Appointment } from '../../core/classes/Doctor.model';
 import { AppointmentService } from '../../core/services/appointment.service';
 
 @Component({
@@ -13,13 +13,7 @@ export class AppointmentListComponent {
   appointment: Appointment = new Appointment();
   constructor(private appSrv: AppointmentService){}
 
-  // onSubmit(){
-  //   this.appSrv.newApp(this.appointment).subscribe((res: ApiResponseModel) => {
-  //     if(res){
-  //       alert(res.body);
-  //     }else{
-  //       alert(res);
-  //     }
-  //   })
-  // }
+  onSubmit(){
+   
+  }
 }

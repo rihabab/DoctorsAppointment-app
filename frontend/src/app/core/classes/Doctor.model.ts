@@ -1,4 +1,5 @@
 export class Doctor {
+  id: number;
     name: String;
     city: String;
     profession : String;
@@ -6,6 +7,7 @@ export class Doctor {
     email:String;
     contactNo: String;
     constructor(){
+      this.id=0;
       this.name='';
       this.email='';
       this.city='';  
@@ -42,8 +44,15 @@ export class User {
     this.email='';
     this.password='';  
   }
-  
+}
 
+export class UserResponse {
+  user: User;
+  userid: number;
+  constructor(){
+    this.user=new User();
+    this.userid=0;
+  }
 }
 
 export class Appointment {
@@ -51,12 +60,13 @@ export class Appointment {
   patientid:Patient;
   date: string;
   time: String;
+  taken: Boolean;
   constructor() {
     this.doctorid=new Doctor();
     this.patientid= new Patient();
     this.date="";
     this.time="";
-    
+    this.taken=false;
   }
 }
 export class AppointmentRequest {
@@ -64,22 +74,25 @@ export class AppointmentRequest {
   patient: Patient;
   date: Date;
   time: String;
+  taken: Boolean;
   constructor() {
     this.doctor=new Doctor();
     this.patient= new Patient();
     this.date=new Date();
     this.time="";
-    
+    this.taken= false;
   }
 }
 
 export class Patient {
+  id:number;
   name: String;
   gender: String;
   email: String;
   mobileNum: String;
   dateofbirth: String;
   constructor(){
+    this.id=3;
     this.name ="";
     this.gender="";
     this.email= "";
