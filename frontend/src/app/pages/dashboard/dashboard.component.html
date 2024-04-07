@@ -23,6 +23,7 @@
                   <th>Date</th>
                   <th>Time</th>
                   <th>Patient</th>
+                  <th>Reserved</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +31,7 @@
                   <td>{{ formatDate(appointment.date) }}</td>
                   <td>{{ appointment.time }}</td>
                   <td>{{ appointment.patientid.name }}</td>
+                  <td>{{ appointment.taken }}</td>
                 </tr>
             </tbody>
           </table>

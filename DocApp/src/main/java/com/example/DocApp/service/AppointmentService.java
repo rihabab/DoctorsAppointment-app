@@ -8,6 +8,7 @@ import com.example.DocApp.repository.AppointmentRepository;
 import com.example.DocApp.repository.DoctorRepository;
 import com.example.DocApp.repository.PatientRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,7 +31,7 @@ public class AppointmentService {
 
     // Method to retrieve all appointments
     public List<Appointment> getAllAppointments() {
-        return appointmentRepository.findAll();
+        return appointmentRepository.findAll(Sort.by(Sort.Direction.ASC, "date"));
     }
 
     // Method to retrieve an appointment by ID

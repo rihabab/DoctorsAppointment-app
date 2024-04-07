@@ -100,3 +100,13 @@ export class Patient {
     this.dateofbirth= "";
   }
 }
+export class PatientRequest {
+  patient: Patient;
+  password: String;
+  nature: String;
+  constructor(){
+      this.patient= new Patient();
+      this.password='';
+      this.nature='patient';
+  }
+}

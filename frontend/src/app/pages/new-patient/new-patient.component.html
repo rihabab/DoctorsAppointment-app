@@ -1,0 +1,30 @@
+<div class="new-doctor">
+    <div class="wrapper">
+        <h2>Patient Registration</h2>
+        <section class="form">
+            
+            <div class="input-box">
+            <input type="text" [(ngModel)]="patientdata.patient.name" placeholder="Name" required>
+            <input type="text" [(ngModel)]="patientdata.patient.gender" placeholder="Gender" required>
+            </div>
+            <div class="input-box">
+            <input type="text" [(ngModel)]="patientdata.patient.email" placeholder="Email" required>
+            <input type="text" [(ngModel)]="patientdata.patient.mobileNum" placeholder="Num" required>
+            </div>
+            <label for="datepicker">Date of Birth:</label>
+                <div class="input-box">
+                    <input type="date" [(ngModel)]="patientdata.patient.dateofbirth" class="form-control" id="datepicker" name="datepicker">
+                </div>
+            <div class="input-box">
+                <input type="password" [(ngModel)]="patientdata.password" placeholder="Password" required>
+                </div>
+            <div class="input-box button">
+            <button type="button"  (click)="onRegister()">Register Now</button>
+            </div>
+            <div class="text">
+            <h3>Already have an account? <a href="/login">Login now</a></h3>
+            </div>
+        </section>
+    </div>
+</div>
+
