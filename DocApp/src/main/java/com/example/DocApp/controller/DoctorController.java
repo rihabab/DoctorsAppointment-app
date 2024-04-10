@@ -1,6 +1,7 @@
 package com.example.DocApp.controller;
 
 
+import com.example.DocApp.entity.Appointment;
 import com.example.DocApp.entity.Doctor;
 import com.example.DocApp.entity.DoctorRequest;
 import com.example.DocApp.entity.User;
@@ -29,9 +30,20 @@ public class DoctorController {
     }
 
     @GetMapping
-    public List<Doctor> getAllDoctors() {
-        return doctorService.getAllDoctors();
+    public List<Doctor> getAllDoctors(@RequestParam(required = false) String city,
+                                      @RequestParam(required = false) String profession) {
+
+        if (profession != null && city != null) {
+            return doctorService.getDoctorsByCityProfession(city, profession);
+        } else if (city != null) {
+            return doctorService.getDoctorsByCity(city);
+        } else if (profession != null) {
+            return doctorService.getDoctorsByProfession(profession);
+        } else {
+            return doctorService.getAllDoctors();
+        }
     }
+
 
     @GetMapping("/{id}")
     public Doctor getDoctorById(@PathVariable Long id) {

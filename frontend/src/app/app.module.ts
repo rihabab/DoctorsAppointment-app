@@ -16,6 +16,7 @@ import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
 import { NewPatientComponent } from './pages/new-patient/new-patient.component';
 import { ReceptionComponent } from './pages/reception/reception.component';
 import { NewAppointmentComponent } from './pages/new-appointment/new-appointment.component';
+import { PatientDashComponent } from './pages/patient-dash/patient-dash.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NewAppointmentComponent } from './pages/new-appointment/new-appointment
     NewDoctorComponent,
     NewPatientComponent,
     ReceptionComponent,
-    NewAppointmentComponent
+    NewAppointmentComponent,
+    PatientDashComponent
   ],
   imports: [
     BrowserModule,

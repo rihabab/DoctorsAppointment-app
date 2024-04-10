@@ -1,0 +1,50 @@
+<div class="card mb-4">
+    <hr class="hr" />
+    <div class="card-header">
+        
+        <div class="row col">
+            <div class="col-8">
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Doctor's Appointments
+            </div>
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <select class="form-select">
+                        <option value="" disabled selected>Select City</option>
+                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="input-group">
+                    <input type="date" class="form-control">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <hr class="hr" />
+
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Adress</th>
+                    <th>Profession</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let appointment of filteredAppointments">
+                    <td>{{ formatDate(appointment.date) }}</td>
+                    <td>{{ appointment.time }}</td>
+                    <td>{{ appointment.patientid.name }}</td>
+                    <td>{{ appointment.taken }}</td>
+                </tr> -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+  

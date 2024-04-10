@@ -25,6 +25,19 @@ public class DoctorService {
         return doctorRepository.findAll();
     }
 
+    public List<Doctor> getDoctorsByCity(String city) {
+        return doctorRepository.findDoctorByCity(city);
+    }
+
+
+    public List<Doctor> getDoctorsByProfession(String profession) {
+        return doctorRepository.findDoctorByProfession(profession);
+    }
+
+
+    public List<Doctor> getDoctorsByCityProfession(String city, String profession) {
+        return doctorRepository.findDoctorByCityAndProfession(city, profession);
+    }
     // Method to retrieve a hospital by ID
     public Optional<Doctor> getDoctorById(Long hospitalId) {
         return doctorRepository.findById(hospitalId);
