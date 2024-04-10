@@ -10,16 +10,17 @@ import { Doctor } from '../../core/classes/Doctor.model';
 export class PatientDashComponent {
   searchTerm: String = "";
   cities : String[] = ["Rabat", "Tanger", "Casablanca", "Agadir", "Marakech"];
-  city:String = "";
-  profession: String = "";
+  professions : String[] = ["Anesthésiologie", "Cardiologie", "Dermatologie", "Endocrinologie", "Gastro-entérologie","Gériatrie", "Hématologie", "Infectiologie", "Médecine interne", "Néphrologie","Neurologie","Obstétrique et gynécologie","Oncologie","Ophtalmologie","Orthopédie","Oto-rhino-laryngologie (ORL)","Pédiatrie","Pneumologie","Psychiatrie","Radiologie"];
+  SelectedCity:String = "";
+  SelectedProfession: String = "";
 
-  doctor: Doctor[] = [];
+  doctors: Doctor[] = [];
   
   constructor(private appSrv: DoctorService){
-    this.appSrv.GetAll(this.searchTerm,this.searchTerm).subscribe((res: any[]) => {
+    this.appSrv.GetAll(this.SelectedCity,this.SelectedProfession).subscribe((res: any[]) => {
       if(res){
-        this.doctor=res;
-        
+        this.doctors=res;
+        console.log(this.doctors);
       }else{
         alert(res);
       }

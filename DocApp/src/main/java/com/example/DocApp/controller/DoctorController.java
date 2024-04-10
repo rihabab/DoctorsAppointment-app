@@ -33,11 +33,11 @@ public class DoctorController {
     public List<Doctor> getAllDoctors(@RequestParam(required = false) String city,
                                       @RequestParam(required = false) String profession) {
 
-        if (profession != null && city != null) {
+        if (profession != null && city != null && !city.isEmpty() && !profession.isEmpty()) {
             return doctorService.getDoctorsByCityProfession(city, profession);
-        } else if (city != null) {
+        } else if (city != null && !city.isEmpty()) {
             return doctorService.getDoctorsByCity(city);
-        } else if (profession != null) {
+        } else if (profession != null && !profession.isEmpty()) {
             return doctorService.getDoctorsByProfession(profession);
         } else {
             return doctorService.getAllDoctors();

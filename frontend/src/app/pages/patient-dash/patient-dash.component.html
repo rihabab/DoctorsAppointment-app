@@ -3,22 +3,29 @@
     <div class="card-header">
         
         <div class="row col">
-            <div class="col-8">
+            <div class="col-7">
                 <i class="fa fa-shopping-cart" aria-hidden="true"></i> Doctor's Appointments
             </div>
             <div class="col-lg-2">
                 <div class="input-group">
-                    <select class="form-select">
+                    <select class="form-select" [(ngModel)]="SelectedProfession" >
                         <option value="" disabled selected>Select City</option>
-                        <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                        <option *ngFor="let profeesion of professions"  >{{ profeesion }}</option>
                     </select>
                 </div>
             </div>
             <div class="col-lg-2">
                 <div class="input-group">
-                    <input type="date" class="form-control">
+                    <select class="form-select" [(ngModel)]="SelectedCity" >
+                        <option value="" disabled selected>Select City</option>
+                        <option *ngFor="let city of cities"  >{{ city }}</option>
+                    </select>
                 </div>
             </div>
+            <div class="col-lg-1">
+                <i class="fas fa-search"></i>
+            </div>
+            
         </div>
     </div>
     
@@ -31,17 +38,19 @@
                 <tr>
                     <th>Doctor</th>
                     <th>Adress</th>
+                    <th>contact</th>
                     <th>Profession</th>
                     <th>City</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- <tr *ngFor="let appointment of filteredAppointments">
-                    <td>{{ formatDate(appointment.date) }}</td>
-                    <td>{{ appointment.time }}</td>
-                    <td>{{ appointment.patientid.name }}</td>
-                    <td>{{ appointment.taken }}</td>
-                </tr> -->
+                <tr *ngFor="let doctor of doctors">
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.email }}</td>
+                    <td>{{ doctor.contactNo }}</td>
+                    <td>{{ doctor.profession }}</td>
+                    <td>{{ doctor.city }}</td>
+                </tr>
             </tbody>
         </table>
     </div>

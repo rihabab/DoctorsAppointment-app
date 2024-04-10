@@ -21,6 +21,9 @@ export class DoctorService {
   }
 
   GetAll(city: String, profession:String) : Observable<any[]> {
+    console.log("city is" +city);
+    console.log("profession is" +profession);
+    console.log(environment.api_url+`?city=${city}&profession=${profession}`);
     return this.http.get<any[]>(environment.api_url+`?city=${city}&profession=${profession}`);
   }
   
