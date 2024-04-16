@@ -12,7 +12,6 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.sql.Date;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -43,11 +42,11 @@ public class AppointmentService {
     }
     public List<Appointment> getAppointmentsByDoctorId(Long doctorid) {
         Doctor doctor= doctorRepository.findById(doctorid).orElse(null);
-        return appointmentRepository.findByDoctorid(doctor);
+        return appointmentRepository.findByDoctorid(doctor,Sort.by(Sort.Direction.ASC, "date"));
     }
     public List<Appointment> getAppointmentsByPatientId(Long patientid) {
         Patient patient= patientRepository.findById(patientid).orElse(null);
-        return appointmentRepository.findByPatientid(patient);
+        return appointmentRepository.findByPatientid(patient,Sort.by(Sort.Direction.ASC, "date"));
     }
     public List<Appointment> getAppointmentByDateTaken(Date date, boolean taken) {
         return appointmentRepository.findByDateAndTaken(date,taken);
@@ -64,7 +63,7 @@ public class AppointmentService {
     public List<Appointment> getAppointmentsByCityAndProfession(String city,String profession) {
         List<Doctor> doctors = doctorRepository.findDoctorByCityAndProfession(city, profession);
         return doctors.stream()
-                .flatMap(doctor -> appointmentRepository.findByDoctorid(doctor).stream())
+                .flatMap(doctor -> appointmentRepository.findByDoctorid(doctor, Sort.by(Sort.Direction.ASC, "date")).stream())
                 .collect(Collectors.toList());
     }
 

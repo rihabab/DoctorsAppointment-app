@@ -1,34 +1,31 @@
+
+
 <div class="card mb-4">
-    <hr class="hr" />
-    <div class="card-header">
-        
-        <div class="row col">
-            <div class="col-7">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i> Doctor's Appointments
-            </div>
-            <div class="col-lg-2">
-                <div class="input-group">
+    <div class="container">
+        <div class="navbar navbar-light bg-light ">
+            <a class="navbar-brand"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Doctor's Appointments</a>
+            <div class="form-inline custom-form">
+                <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
+                
+                <div class="form-control mr-sm-2">
                     <select class="form-select" [(ngModel)]="SelectedProfession" >
-                        <option value="" disabled selected>Select City</option>
-                        <option *ngFor="let profeesion of professions"  >{{ profeesion }}</option>
+                        <option value="" >Select spécialité</option>
+                        <option *ngFor="let profession of professions"  >{{ profession }}</option>
                     </select>
                 </div>
-            </div>
-            <div class="col-lg-2">
-                <div class="input-group">
+            
+                <div class="form-control mr-sm-2">
                     <select class="form-select" [(ngModel)]="SelectedCity" >
-                        <option value="" disabled selected>Select City</option>
+                        <option value="" >Selected city</option>
                         <option *ngFor="let city of cities"  >{{ city }}</option>
                     </select>
                 </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" (click)="Search()" type="submit"><i class="fas fa-search" ></i></button>
+                
             </div>
-            <div class="col-lg-1">
-                <i class="fas fa-search"></i>
-            </div>
-            
         </div>
     </div>
-    
+   
     
     <hr class="hr" />
 
@@ -45,7 +42,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let doctor of doctors">
-                    <td>{{ doctor.name }}</td>
+                    <td><a [routerLink]="['/profile']" (click)="navigateProfile(doctor.id)">{{ doctor.name }}</a></td>
                     <td>{{ doctor.email }}</td>
                     <td>{{ doctor.contactNo }}</td>
                     <td>{{ doctor.profession }}</td>

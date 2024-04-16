@@ -1,0 +1,54 @@
+<!-- <p>doctor-app-list works!</p>
+<h2>{{ doctorID }}</h2> -->
+<div class="container">
+    
+    <div class="card mb-4 pt-2">
+      
+          <div class="card-header" id="">
+              <i class="fa fa-shopping-cart" aria-hidden="true" ></i>
+              Doctor's Appointments
+              
+              <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" style="float:right">
+                  <div class="input-group">
+                  <input type="search" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."  class="form-control">
+                      <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </div>
+              </form>
+              
+          </div> 
+          <hr class="hr" />
+  
+          <div class="container">
+            <table class="table table-bordered"  id="myTable">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>9:00 AM</th>
+                  <th>10:00 AM</th>
+                  <th>11:00 AM</th>
+                  <th>12:00 AM</th>
+                  <th>13:00 AM</th>
+                  <th>14:00 AM</th>
+                  <th>15:00 AM</th>
+                  <th>16:00 AM</th>
+                  <th>17:00 AM</th>
+                  
+        
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let entry of groupedAppointments | keyvalue">
+                  <td>{{ formatDate(entry.key) }}</td>
+                  <td *ngFor="let appointment of entry.value" [ngClass]="{'reserved': appointment.taken, 'unreserved': !appointment.taken}" >
+                    {{ appointment.taken }}
+                  </td>
+                  
+                </tr>
+                
+                
+              </tbody>
+            </table>
+        </div>
+  
+    </div>
+</div>

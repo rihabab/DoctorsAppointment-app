@@ -18,5 +18,8 @@ export class AppointmentService {
   GetAll() : Observable<any[]> {
     return this.http.get<any[]>(environment.api_url_get_app);
   }
+  GetByDoctorId(id:number) : Observable<any[]> {
+    return this.http.get<any[]>(environment.api_url_get_app+`/doctor/${id}`);
+  }
   
 }

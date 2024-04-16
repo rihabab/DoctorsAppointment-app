@@ -11,7 +11,7 @@ import { DoctorService } from '../../core/services/doctor.service';
 })
 export class LoginComponent {
   userObj: User = new User();
-
+  loginError:String = "";
   private doctorService = inject(DoctorService);
 
   constructor(private router: Router){
@@ -20,7 +20,8 @@ export class LoginComponent {
 
   onLogin(){
     this.doctorService.loginUser(this.userObj).subscribe((res)=>{
-      if(res){
+      console.log(res);
+      if(res.user){
         
         localStorage.setItem('loginuser', JSON.stringify(res));
         localStorage.setItem('user-email', JSON.stringify(res.user.email));
@@ -40,9 +41,10 @@ export class LoginComponent {
         
         
         
-      }else {
-        alert('problem')
+      }else if(res.status != 200) {
+        alert('problem');
       }
     })
+    this.loginError="false credentials";
   }
 }

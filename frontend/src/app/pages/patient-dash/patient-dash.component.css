@@ -1,0 +1,13 @@
+.custom-form {
+    display: flex;
+    align-items: center; /* Align items vertically */
+}
+
+.custom-input {
+    flex: 1; /* Take up remaining space */
+    margin-right: 10px; /* Add margin to the right */
+}
+
+.custom-button {
+    /* Add your button styles */
+}

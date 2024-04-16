@@ -1,0 +1,7 @@
+.reserved {
+    background-color: red;
+    opacity: 0.5; /* Make the background semi-transparent */
+    pointer-events: none; /* Disable pointer events */
+    cursor: not-allowed; /* Change cursor to indicate unclickable */
+    color: aliceblue;
+  }

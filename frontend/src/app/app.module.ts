@@ -11,12 +11,13 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './pages/login/login.component';
 import { CommonModule, DatePipe } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
 import { NewPatientComponent } from './pages/new-patient/new-patient.component';
 import { ReceptionComponent } from './pages/reception/reception.component';
 import { NewAppointmentComponent } from './pages/new-appointment/new-appointment.component';
 import { PatientDashComponent } from './pages/patient-dash/patient-dash.component';
+import { DoctorAppListComponent } from './pages/doctor-app-list/doctor-app-list.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PatientDashComponent } from './pages/patient-dash/patient-dash.componen
     NewPatientComponent,
     ReceptionComponent,
     NewAppointmentComponent,
-    PatientDashComponent
+    PatientDashComponent,
+    DoctorAppListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +39,8 @@ import { PatientDashComponent } from './pages/patient-dash/patient-dash.componen
     FormsModule,
     HttpClientModule,
     CommonModule,
-    RouterLink
+    RouterLink,
+    RouterModule
   ],
   providers: [
     DatePipe
