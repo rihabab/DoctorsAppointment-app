@@ -18,6 +18,8 @@ import { ReceptionComponent } from './pages/reception/reception.component';
 import { NewAppointmentComponent } from './pages/new-appointment/new-appointment.component';
 import { PatientDashComponent } from './pages/patient-dash/patient-dash.component';
 import { DoctorAppListComponent } from './pages/doctor-app-list/doctor-app-list.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { PatientAppComponent } from './pages/patient-app/patient-app.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,8 @@ import { DoctorAppListComponent } from './pages/doctor-app-list/doctor-app-list.
     ReceptionComponent,
     NewAppointmentComponent,
     PatientDashComponent,
-    DoctorAppListComponent
+    DoctorAppListComponent,
+    PatientAppComponent
   ],
   imports: [
     BrowserModule,
@@ -40,10 +43,12 @@ import { DoctorAppListComponent } from './pages/doctor-app-list/doctor-app-list.
     HttpClientModule,
     CommonModule,
     RouterLink,
-    RouterModule
+    RouterModule,
+    
   ],
   providers: [
-    DatePipe
+    DatePipe,
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })

@@ -21,5 +21,14 @@ export class AppointmentService {
   GetByDoctorId(id:number) : Observable<any[]> {
     return this.http.get<any[]>(environment.api_url_get_app+`/doctor/${id}`);
   }
+  GetByPatientId(id:number) : Observable<any[]> {
+    return this.http.get<any[]>(environment.api_url_get_app+`/patient/${id}`);
+  }
+  GetAppointmentByID(id:number) : Observable<Appointment> {
+    return this.http.get<Appointment>(environment.api_url_get_app+`/${id}`);
+  }
+  PutAppointment(id:number, app:Appointment) : Observable<any> {
+    return this.http.put<any>(environment.api_url_get_app+`/${id}`,app);
+  }
   
 }

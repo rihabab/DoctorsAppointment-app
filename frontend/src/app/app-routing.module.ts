@@ -9,6 +9,7 @@ import { NewDoctorComponent } from './pages/new-doctor/new-doctor.component';
 import { NewPatientComponent } from './pages/new-patient/new-patient.component';
 import { PatientDashComponent } from './pages/patient-dash/patient-dash.component';
 import { DoctorAppListComponent } from './pages/doctor-app-list/doctor-app-list.component';
+import { PatientAppComponent } from './pages/patient-app/patient-app.component';
 
 
 const routes: Routes = [
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: 'new-doctor', component: NewDoctorComponent },
   { path: 'new-patient', component: NewPatientComponent },
   { path: 'patient', component: PatientDashComponent },
-  { path: 'profile', component: DoctorAppListComponent }
+  { path: 'profile', component: DoctorAppListComponent },
+  { path: 'myAppointments', component:  PatientAppComponent}
 ];
 
 @NgModule({

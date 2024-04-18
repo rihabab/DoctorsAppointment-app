@@ -14,18 +14,34 @@
 <!-- Navigation-->
 <nav class="navigation navbar navbar-expand-lg navbar-light bg-white py-3 ">
   <div class="container ">
-      <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary h2">Start Bootstrap</span></a>
+      <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary h2">DocNow</span></a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0  fw-bolder">
+          <!-- <ul class="navbar-nav ms-auto mb-2 mb-lg-0  fw-bolder">
               <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="/dashboard">Home</a></li>
               <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="/appointments">Appointments</a></li>
               <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="/patients">Patients</a></li>
-              <!-- <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="/">{{ user.username }}</a></li> -->
               <li class="nav-item" *ngIf="user.username ==''"><a class="nav-link" href="/login">Login</a></li>
               <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="" (click)="logout()">Logout</a></li>
               <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="/dashboard"><i class="fas fa-user"></i></a></li>
-          </ul>
+          </ul> -->
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0  fw-bolder" *ngIf="user.username !=''">
+            <li class="nav-item" *ngIf="nature=='doctor'"><a class="nav-link" href="/dashboard">Home</a></li>
+            <li class="nav-item" *ngIf="nature=='doctor'"><a class="nav-link" href="/appointments">Appointments</a></li>
+            <li class="nav-item" *ngIf="nature=='doctor'"><a class="nav-link" href="/patients">Patients</a></li>
+
+
+
+            <li class="nav-item" *ngIf="nature=='patient'"><a class="nav-link" href="/patient">Home</a></li>
+            <li class="nav-item" *ngIf="nature=='patient'"><a class="nav-link" href="/myAppointments">myAppointments</a></li>
+
+
+            <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="" (click)="logout()">Logout</a></li>
+            <li class="nav-item" *ngIf="user.username !=''"><a class="nav-link" href="/dashboard"><i class="fas fa-user"></i></a></li>
+        </ul>
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0  fw-bolder" *ngIf="user.username ==''">
+          <li class="nav-item" ><a class="nav-link" href="/login">Login</a></li>
+      </ul>
       </div>
   </div>
 </nav>
@@ -41,8 +57,8 @@
       <div class="row gx-5 justify-content-center">
           <div class="col-xxl-8">
               <div class="text-center my-5">
-                  <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">About Me</span></h2>
-                  <p class="lead fw-light mb-4">My name is Start Bootstrap and I help brands grow.</p>
+                  <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">DocNow</span></h2>
+                  <p class="lead fw-light mb-4">This is my doctor appointments application for reserve doctor appointments</p>
                   <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit dolorum itaque qui unde quisquam consequatur autem. Eveniet quasi nobis aliquid cumque officiis sed rem iure ipsa! Praesentium ratione atque dolorem?</p>
                   <div class="d-flex justify-content-center fs-2 gap-4">
                       <a class="text-gradient" href="#!"><i class="bi bi-twitter"></i></a>

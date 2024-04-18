@@ -24,6 +24,7 @@ export class LoginComponent {
       if(res.user){
         
         localStorage.setItem('loginuser', JSON.stringify(res));
+        localStorage.setItem('user', JSON.stringify(res.user));
         localStorage.setItem('user-email', JSON.stringify(res.user.email));
         localStorage.setItem('user-name', JSON.stringify(res.user.username));
         localStorage.setItem('user-id', JSON.stringify(res.user.id));

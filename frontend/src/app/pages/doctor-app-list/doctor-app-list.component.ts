@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { Appointment } from '../../core/classes/Doctor.model';
 import { AppointmentService } from '../../core/services/appointment.service';
 import { DatePipe } from '@angular/common';
@@ -9,10 +9,16 @@ import { DatePipe } from '@angular/common';
   styleUrl: './doctor-app-list.component.css'
 })
 export class DoctorAppListComponent {
+  patientid: number=0;
+  app:Appointment= new Appointment();
   doctorID: number=0;
   appointments:Appointment[]=[];
   groupedAppointments: { [date: string]: Appointment[] } = {};
   constructor(private appSrv: AppointmentService,private datePipe: DatePipe){
+    const data = localStorage.getItem('userNatureId');
+    if(data != null){
+      this.patientid = JSON.parse(data);
+    }
     const storedID = localStorage.getItem("doctor-id");
     if (storedID !== null) {
       this.doctorID = JSON.parse(storedID);
@@ -60,4 +66,42 @@ export class DoctorAppListComponent {
    
   }
   
+
+  isModalOpen = false;
+
+  openModal(id:number) {
+    console.log(id);
+    this.appSrv.GetAppointmentByID(id).subscribe((res: Appointment) => {
+      if(res){
+        this.app =res;
+        console.log(this.app.date);
+      }else{
+        alert(res);
+      }
+    })
+    const modal = document.getElementById('myModal');
+    if(modal != null){
+      modal.style.display= 'block';
+    }
+  }
+
+  closeModal() {
+    const modal = document.getElementById('myModal');
+    if(modal != null){
+      modal.style.display= 'none';
+    }
+  }
+
+  confirm(id:number){
+    this.app.patientid.id=this.patientid;
+    this.app.taken=true;
+    this.appSrv.PutAppointment(id,this.app).subscribe((res: any) => {
+      if(res){
+        this.app =res;
+        console.log(this.app);
+      }else{
+        alert(res);
+      }
+    })
+  }
 }

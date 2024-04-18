@@ -14,12 +14,16 @@ export class AppComponent {
   user: User = this.hospitalService.user;
   Name: String ='';
   Email: String='';
+  nature: String ='';
 
   constructor(private hospitalService :DoctorService,private router: Router) {
     const data = localStorage.getItem('loginuser');
+    const user = localStorage.getItem('user-nature');
     if(data != null){
       this.user = JSON.parse(data);
-      // location.reload();
+    }
+    if(user != null){
+      this.nature = JSON.parse(user);
     }
   }
 

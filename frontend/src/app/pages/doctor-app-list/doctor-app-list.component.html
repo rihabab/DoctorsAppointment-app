@@ -17,7 +17,37 @@
               
           </div> 
           <hr class="hr" />
-  
+          <!-- Modal -->
+                    <!-- Button to Open the Modal -->
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+                      Open modal
+                  </button>
+                  
+                  <!-- The Modal -->
+                  <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                      <div class="modal-dialog modal-lg"> <!-- Use modal-lg class to make the modal larger -->
+                          <div class="modal-content">
+                              <!-- Modal Header -->
+                              <div class="modal-header">
+                                  <h4 class="modal-title">Modal Heading</h4>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                              </div>
+                              <!-- Modal body -->
+                              <div class="modal-body">
+                                  <div>{{ app.date }}</div>
+                                  <div>{{ app.doctorid.name }}</div>
+                                  <div>{{ app.time }}</div>
+                              </div>
+                              <!-- Modal footer -->
+                              <div class="modal-footer">
+                                  <button type="button" (click)="closeModal()" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> <!-- Close button -->
+                                  <button type="button" class="btn btn-primary" (click)="confirm(app.id)">Confirm Reservation</button> <!-- Button to confirm reservation -->
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+         <!-- finish modal -->
           <div class="container">
             <table class="table table-bordered"  id="myTable">
               <thead>
@@ -39,7 +69,7 @@
               <tbody>
                 <tr *ngFor="let entry of groupedAppointments | keyvalue">
                   <td>{{ formatDate(entry.key) }}</td>
-                  <td *ngFor="let appointment of entry.value" [ngClass]="{'reserved': appointment.taken, 'unreserved': !appointment.taken}" >
+                  <td *ngFor="let appointment of entry.value" (click)="!appointment.taken && openModal(appointment.id)" [ngClass]="{'reserved': appointment.taken, 'unreserved': !appointment.taken}" >
                     {{ appointment.taken }}
                   </td>
                   

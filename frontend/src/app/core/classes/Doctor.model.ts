@@ -56,12 +56,14 @@ export class UserResponse {
 }
 
 export class Appointment {
+  id:number;
   doctorid: Doctor;
   patientid:Patient;
   date: string;
   time: String;
   taken: Boolean;
   constructor() {
+    this.id=0;
     this.doctorid=new Doctor();
     this.patientid= new Patient();
     this.date="";
